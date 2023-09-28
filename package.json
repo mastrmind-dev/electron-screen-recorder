@@ -1,0 +1,15 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "learning electron.js",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "spaceboy",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "electron": "^26.2.3"
+  }
+}
