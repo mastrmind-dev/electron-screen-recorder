@@ -10,6 +10,11 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@electron/rebuild": "^3.3.0",
     "electron": "^26.2.3"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.0.11",
+    "fs": "^0.0.1-security"
   }
 }

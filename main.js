@@ -1,5 +1,11 @@
-const { app, BrowserWindow, desktopCapturer } = require("electron");
-const { Menu } = require("electron");
+const {
+  app,
+  BrowserWindow,
+  desktopCapturer,
+  Menu,
+  dialog,
+  ipcMain,
+} = require("electron");
 const path = require("path");
 
 const createWindow = () => {
@@ -8,6 +14,8 @@ const createWindow = () => {
     height: 800,
     webPreferences: {
       preload: path.join(__dirname, "ScreenRecorder.js"),
+      contextIsolation: false,
+      nodeIntegration: true,
     },
   });
   win.loadFile("index.html");
@@ -27,6 +35,20 @@ const createWindow = () => {
       ).popup();
     });
 };
+
+ipcMain.on("open-save-dialog", (event) => {
+  dialog
+    .showSaveDialog({
+      title: "save recorded video",
+      defaultPath: "recorded-video.webm",
+      filters: [{ name: "WebM Files", extensions: "webm" }],
+    })
+    .then((result) => {
+      if (!result.canceled && result.filePath) {
+        event.reply('save-dialog-result', result.filePath)
+      }
+    });
+});
 
 app.whenReady().then(() => {
   createWindow();
