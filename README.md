@@ -1,0 +1,2 @@
+# electron-screen-recorder
+creating an open source screen recorder with advanced features like pausing and resuming, specially with unlimited recording time. This is open source and free project. There are bunch of free screen recorders with limited features. Some of them have limited time duration to record, some of them have limited features like they only allow us to start record and stop record but no pause and resume. To all those all those issues, this simple project will be an answer.
