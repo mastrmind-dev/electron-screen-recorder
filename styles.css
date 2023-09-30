@@ -14,6 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
     min-height: 100vh;
     background-color: #483D8B;
     box-shadow: 10px 0 20px rgba(135, 206, 250, 0.2), -10px 0 20px rgba(135, 206, 250, 0.2);  }
@@ -53,13 +54,15 @@
   
   header h1 {
     font-size: 36px;
+    
     margin-bottom: 10px;
     color: white;
   }
   
-  header p {
+  header h4 {
     font-size: 16px;
     color: white;
+    
     margin-bottom: 30px;
   }
   
@@ -80,6 +83,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    
     gap: 10px;
     margin-top: 20px;
   }
