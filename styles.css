@@ -1,14 +1,44 @@
-body {
+/* body {
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: white;
+    background-color: #27005D;
     font-family: 'Arial', sans-serif;
+  } */
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #483D8B;
+    box-shadow: 10px 0 20px rgba(135, 206, 250, 0.2), -10px 0 20px rgba(135, 206, 250, 0.2);  }
+  
+  /* Animation for the wave effect */
+  @keyframes waveAnimation {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
   }
   
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+   background: linear-gradient(to bottom right, rgba(135, 206, 250, 0.1), rgba(135, 206, 250, 0.2));
+  animation: waveAnimation 5s infinite linear;
+  pointer-events: none;
+  z-index: -1;  }
   .container {
     background-color: black;
     padding: 40px;
