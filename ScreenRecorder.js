@@ -68,7 +68,7 @@ const onDataAvailable = (mediaRecorder, recordedChunks) => {
 const onRecordingStop = (mediaRecorder, recordedChunks) => {
   mediaRecorder.onstop = () => {
     // create a blob
-    recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
+    recordedBlob = new Blob(recordedChunks, { type: "video/mp4" });
     // generate tempory url for recorded video
     const url = URL.createObjectURL(recordedBlob);
     // set temp url to the video element
