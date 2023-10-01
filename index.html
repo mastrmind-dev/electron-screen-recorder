@@ -1,13 +1,34 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Electron screen recorder</title>
-  </head>
-  <body>
-    <h1>Hello from electron recorder!!!</h1>
-    <video id="video" controls></video>
-    <button id="start-record">Start recording</button>
-    <button id="stop-record">Stop recording</button>
-    <button id="save-record">Save recording</button>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electron Screen Recorder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Record your Screen</h1>
+      <h4>Click the start button to begin recording your screen.</h4>
+    </header>
+    <main>
+      <div class="video-container">
+        <video id="video" controls></video>
+      </div>
+      <div class="buttons">
+        <button id="start-record" class="record-button">Start Recording</button>
+        <button id="stop-record" class="record-button" disabled>Stop Recording</button>
+        <button id="save-record" class="save-button">Save Recording</button>
+      </div>
+    </main>
+    <footer>
+      <p>Electron Screen Recorder &copy; 2023. All rights reserved.</p>
+    </footer>
+  </div>
+
+</body>
+
 </html>

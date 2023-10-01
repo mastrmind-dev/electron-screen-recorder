@@ -1,0 +1,131 @@
+
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    background-color: #483D8B;
+    box-shadow: 10px 0 20px rgba(135, 206, 250, 0.2), -10px 0 20px rgba(135, 206, 250, 0.2);  }
+  
+  /* Animation for the wave effect */
+  @keyframes waveAnimation {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+   background: linear-gradient(to bottom right, rgba(135, 206, 250, 0.1), rgba(135, 206, 250, 0.2));
+  animation: waveAnimation 5s infinite linear;
+  pointer-events: none;
+  z-index: -1;  }
+  .container {
+    background-color: black;
+    padding: 40px;
+    border-radius: 10px;
+    border-color: white;
+    border: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  header h1 {
+    font-size: 36px;
+    
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  header h4 {
+    font-size: 16px;
+    color: white;
+    
+    margin-bottom: 30px;
+  }
+  
+  .video-container {
+    margin-bottom: 30px;
+  }
+  
+  video {
+    width: 100%;
+    max-height: 300px;
+    background-color: #000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .record-button, .save-button {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  .save-button {
+    background-color: #2ecc71;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .record-button:hover{
+    background-color: #2980b9;
+  }
+  #stop-record:hover{
+    background-color: red;
+  }
+  .record-button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+  }
+
+  #stop-record:disabled{
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+  }
+    
+ 
+  #stop-record:active{
+    background-color: red;
+  }
+  footer {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #555;
+  }
+  .save-button:hover, .record-button:hover {
+    transform: scale(0.98);
+  }
+  
