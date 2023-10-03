@@ -8,6 +8,8 @@ const {
 } = require("electron");
 const path = require("path");
 
+let menu;
+
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
@@ -23,7 +25,7 @@ const createWindow = () => {
   desktopCapturer
     .getSources({ types: ["screen", "window"] })
     .then(async (sources) => {
-      Menu.buildFromTemplate(
+      menu = Menu.buildFromTemplate(
         sources.map((source) => {
           return {
             label: source.name,
@@ -32,9 +34,14 @@ const createWindow = () => {
             },
           };
         })
-      ).popup();
+      );
+      win.webContents.send("menu-click");
     });
 };
+
+ipcMain.on("menu-open", (event) => {
+  menu.popup();
+});
 
 ipcMain.on("open-save-dialog", (event) => {
   dialog
