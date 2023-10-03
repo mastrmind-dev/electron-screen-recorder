@@ -4,7 +4,11 @@ const notify = require('electron-notification');
 
 let recordedBlob, video;
 
-
+ipcRenderer.on("menu-click", async (event) => {
+  document.getElementById("select-screen").addEventListener("click", () => {
+    ipcRenderer.send("menu-open");
+  });
+});
 
 ipcRenderer.on("SET_SOURCE", async (event, sourceId) => {
   try {
