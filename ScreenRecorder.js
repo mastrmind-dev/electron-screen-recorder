@@ -1,10 +1,10 @@
 const { ipcRenderer } = require("electron");
 const fs = require("fs");
-const notify = require('electron-notification');
+const notify = require("electron-notification");
 
 let recordedBlob, video;
 
-ipcRenderer.on("menu-click", async (event) => {
+ipcRenderer.on("window-opened", async (event) => {
   document.getElementById("select-screen").addEventListener("click", () => {
     ipcRenderer.send("menu-open");
   });
@@ -12,10 +12,6 @@ ipcRenderer.on("menu-click", async (event) => {
 
 ipcRenderer.on("SET_SOURCE", async (event, sourceId) => {
   try {
-    console.log("executed");
-
-    
-
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
@@ -85,12 +81,16 @@ const onRecordingStop = (mediaRecorder, recordedChunks) => {
 const initiateRecordControllers = (mediaRecorder) => {
   document.getElementById("start-record").addEventListener("click", () => {
     mediaRecorder.start();
-    notify('Screen recording', {
-      body: 'Recording the Screen'
-    }, () => {
-      console.log('Notification was clicked!')
-    })
-    
+    notify(
+      "Screen recording",
+      {
+        body: "Recording the Screen",
+      },
+      () => {
+        console.log("Notification was clicked!");
+      }
+    );
+
     document.getElementById("start-record").disabled = true;
     document.getElementById("stop-record").disabled = false;
   });
@@ -98,6 +98,16 @@ const initiateRecordControllers = (mediaRecorder) => {
     mediaRecorder.stop();
     document.getElementById("stop-record").disabled = true;
     document.getElementById("start-record").disabled = false;
+  });
+
+  document.getElementById("pause-record").addEventListener("click", () => {
+    mediaRecorder.pause();
+    document.getElementById("start-record").disabled = true;
+  });
+
+  document.getElementById("resume-record").addEventListener("click", () => {
+    mediaRecorder.resume();
+    document.getElementById("start-record").disabled = true;
   });
 };
 

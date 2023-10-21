@@ -35,7 +35,7 @@ const createWindow = () => {
           };
         })
       );
-      win.webContents.send("menu-click");
+      win.webContents.send("window-opened");
     });
 };
 
